@@ -17,11 +17,11 @@ export default function SocialStats() {
             const plateform = [...new Set(arr?.map(s => s.plateform))];
 
             console.log('plateform', plateform)
-            const plateformData = plateform?.map(p => ({
-                name: p,
+            const plateformData = plateform?.map(plateform => ({
+                name: plateform,
                 data: dates.map(day => {
-                    const match = arr?.find(s =>
-                        s.plateform === p && new Date(s.date).toLocaleDateString() === day
+                    const match = arr?.find(social =>
+                        social.plateform === plateform && new Date(social.date).toLocaleDateString() === day
                     );
                     return match ? match.followers : 0;
                 }),
@@ -57,14 +57,12 @@ export default function SocialStats() {
 
     return (
         <div>
-           
             <Chart
                 series={series}
                 options={options}
                 type="line"
                 height={300}
             />
-
         </div>
     )
 }
