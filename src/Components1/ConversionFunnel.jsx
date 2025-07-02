@@ -9,7 +9,7 @@ export default function ConversionFunnel() {
   const getConversionFunnel = async () => {
     try {
       const url = process.env.REACT_APP_API_URL;
-      const conversionRes = await axios.get(`{${url}/api/conversion`);
+      const conversionRes = await axios.get(`https://node-app-dashboard.onrender.com/api/conversion`);
       const total = conversionRes.data.length;
 
       console.log(conversionRes)
