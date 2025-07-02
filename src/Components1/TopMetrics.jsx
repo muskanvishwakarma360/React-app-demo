@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function TopMetrics() {
   const [metrics, setMetrics] = useState({});
-  console.log('metrics series', Object.entries(metrics))
+
 
   const metricsData = async () => {
     try {

@@ -4,12 +4,12 @@ import axios from 'axios';
 
 export default function TrafficChart() {
     const [data, setData] = useState({ categories: [], visitors: [] });
-    console.log('date t', data)
+
     const getTrafficChartData = () => {
         const url = process.env.REACT_APP_API_URL;
         axios.get(`${url}/api/traffic`).then(res => {
             const arr = res.data;
-            console.log('data', res.data)
+           
             setData({
                 categories: arr?.map(d => new Date(d.date).toLocaleDateString()),
                 visitors: arr?.map(d => d.visitors),

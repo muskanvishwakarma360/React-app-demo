@@ -15,8 +15,7 @@ export default function SocialStats() {
 
             const dates = [...new Set(arr?.map(d => new Date(d.date).toLocaleDateString()))].sort();
             const plateform = [...new Set(arr?.map(s => s.plateform))];
-
-            console.log('plateform', plateform)
+            
             const plateformData = plateform?.map(plateform => ({
                 name: plateform,
                 data: dates.map(day => {

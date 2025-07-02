@@ -11,7 +11,6 @@ export default function EmailStats() {
       const url = process.env.REACT_APP_API_URL;
       const res = await axios.get(`${url}/api/emailcampaigns`)
       const arr = res.data;
-      console.log('res email', arr);
       setLabels(arr?.map(email => email.subject));
       setSeries(arr?.map(email => email.openRate));
     } catch (err) {

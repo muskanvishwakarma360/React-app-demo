@@ -8,8 +8,7 @@ export default function LeadsTable() {
     axios.get(`${url}/api/leads`)
       .then(res => {
         setLeads(res.data);
-        console.log("first", res.data)
-      });
+      }).catch((err)=>console.log('err', err) );
   };
 
   useEffect(() => {
@@ -28,13 +27,13 @@ export default function LeadsTable() {
         </tr>
       </thead>
       <tbody>
-        {leads?.map(l => (
-          <tr key={l._id}>
-            <td>{l.name}</td>
-            <td>{l.email}</td>
-            <td>{l.source}</td>
-            <td>{l.status}</td>
-            <td>{new Date(l.createdAt).toLocaleDateString()}</td>
+        {leads?.map(lead => (
+          <tr key={lead._id}>
+            <td>{lead.name}</td>
+            <td>{lead.email}</td>
+            <td>{lead.source}</td>
+            <td>{lead.status}</td>
+            <td>{new Date(lead.createdAt).toLocaleDateString()}</td>
           </tr>
         ))}
       </tbody>
