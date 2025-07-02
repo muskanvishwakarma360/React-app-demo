@@ -17,6 +17,14 @@ export default function Page() {
 
             <div className='flex sm:flex-row'>
                 <div className=' w-[50%] p-4'>
+                    <ConversionFunnel />
+                </div>
+                <div className=' w-[50%] p-4'>
+                    <SourcePie />
+                </div>
+            </div>
+            <div className='flex sm:flex-row'>
+                <div className=' w-[50%] p-4'>
                     <TrafficChart />
                 </div>
                 <div className=' w-[50%] p-4'>
@@ -32,14 +40,7 @@ export default function Page() {
                     <SocialStats />
                 </div>
             </div>
-            <div className='flex sm:flex-row'>
-                <div className=' w-[50%] p-4'>
-                    <ConversionFunnel />
-                </div>
-                <div className=' w-[50%] p-4'>
-                    <SourcePie />
-                </div>
-            </div>
+
             <div>
                 <LeadsTable />
             </div>

@@ -24,7 +24,7 @@ export default function TrafficChart() {
     const series = [
         {
             name: 'Visitors',
-            data: data.visitors
+            data: data.visitors   
         }
     ]
 
@@ -33,7 +33,7 @@ export default function TrafficChart() {
             id: 'traffic'
          },
         xaxis: { 
-            categories: data.categories
+            categories: data.categories           
          },
         title: {
             text: 'Traffic Chart '
