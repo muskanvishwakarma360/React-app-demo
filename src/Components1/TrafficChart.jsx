@@ -9,7 +9,6 @@ export default function TrafficChart() {
         const url = process.env.REACT_APP_API_URL;
         axios.get(`${url}/api/traffic`).then(res => {
             const arr = res.data;
-           
             setData({
                 categories: arr?.map(d => new Date(d.date).toLocaleDateString()),
                 visitors: arr?.map(d => d.visitors),

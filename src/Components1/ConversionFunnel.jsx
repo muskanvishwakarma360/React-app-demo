@@ -12,7 +12,7 @@ export default function ConversionFunnel() {
       const conversionRes = await axios.get(`{${url}/api/conversion`);
       const total = conversionRes.data.length;
 
-      const leadsRes = await axios.get('http://localhost:3001/api/leads');
+      const leadsRes = await axios.get(`${url}/api/leads`);
       const leads = leadsRes.data.length;
 
       setSeries([
@@ -25,7 +25,7 @@ export default function ConversionFunnel() {
   };
 
   const options = {
-    labels: series?.map(d => d.label),
+    labels: series?.map(i => i.label),
     chart: { type: 'pie' },
     title: {
       text: 'Conversion Funnel Pie Chart  '
@@ -41,7 +41,7 @@ export default function ConversionFunnel() {
     <div>
 
       <Chart
-        series={series?.map(d => d.value)}
+        series={series?.map(i => i.value)}
         options={options}
         type="pie"
         height={300}
