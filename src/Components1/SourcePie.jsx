@@ -24,7 +24,7 @@ export default function SourcePie() {
 
     return (
         <div>
-            <Chart options={{ labels }} series={series} type="pie" height={300} width={500} />
+            <Chart options={{ labels }} series={series} type="pie" height={300} />
         </div>
     );
 }
