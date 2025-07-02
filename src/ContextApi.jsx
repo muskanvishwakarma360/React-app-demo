@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
 
     const login = (authToken) => setToken(authToken);
-    
+
     const logout = () => {
         setToken(null);
         <Navigate to={'/'} />
@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
 
 
     const isAuth = token
-    console.log('auth', isAuth)
 
     return (
         <AuthContext.Provider value={{ isAuth, login, logout }}>

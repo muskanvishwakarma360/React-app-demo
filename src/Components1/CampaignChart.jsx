@@ -11,7 +11,7 @@ export default function CampaignChart() {
       const url = process.env.REACT_APP_API_URL;
       const response = await axios.get(`${url}/api/campaigns`);
       const data = response.data;
-      console.log('Campaigns data:', data);
+    
       const campaignNames = data.map(item => item.campaignName);
       setCats(campaignNames);
 

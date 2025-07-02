@@ -23,11 +23,9 @@ export default function LoginForm() {
         try {
           const url = process.env.REACT_APP_API_URL;
             const res = await axios.post(`${url}/api/loginuser`, loginForm);
-            console.log(res.data);
             if (res.data.token) {
                 localStorage.setItem('token', res.data.token);
                 login(res.data.token)
-                // alert('success')
                 navigate('/dashboard/panel')
             } else {
                 console.log('no token receive');

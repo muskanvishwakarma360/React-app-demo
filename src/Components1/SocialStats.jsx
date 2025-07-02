@@ -14,7 +14,6 @@ export default function SocialStats() {
             const arr = res.data;
 
             const dates = [...new Set(arr?.map(d => new Date(d.date).toLocaleDateString()))].sort();
-            console.log('dates social', dates)
             const plateform = [...new Set(arr?.map(s => s.plateform))];
 
             console.log('plateform', plateform)
@@ -32,7 +31,6 @@ export default function SocialStats() {
             setSeries(plateformData)
         } catch (err) {
             console.log('err', err);
-
         }
     };
 
