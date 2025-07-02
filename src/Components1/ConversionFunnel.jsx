@@ -11,6 +11,10 @@ export default function ConversionFunnel() {
       const url = process.env.REACT_APP_API_URL;
       const conversionRes = await axios.get(`{${url}/api/conversion`);
       const total = conversionRes.data.length;
+      
+      console.log(conversionRes.data)
+
+      console.log(conversionRes.data.length)
 
       const leadsRes = await axios.get(`${url}/api/leads`);
       const leads = leadsRes.data.length;
