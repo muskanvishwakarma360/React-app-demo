@@ -21,12 +21,13 @@ export default function LoginForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3001/api/loginuser', loginForm);
+          const url = process.env.REACT_APP_API_URL;
+            const res = await axios.post(`${url}/api/loginuser`, loginForm);
             console.log(res.data);
             if (res.data.token) {
                 localStorage.setItem('token', res.data.token);
                 login(res.data.token)
-                alert('success')
+                // alert('success')
                 navigate('/dashboard/panel')
             } else {
                 console.log('no token receive');

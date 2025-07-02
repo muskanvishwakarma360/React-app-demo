@@ -8,7 +8,8 @@ export default function SourcePie() {
     const [labels, setLabels] = useState([]);
 
     const getSourcePie = () => {
-        axios.get('http://localhost:3001/api/leads').then(res => {
+        const url = process.env.REACT_APP_API_URL;
+        axios.get(`${url}/api/leads`).then(res => {
             const counts = {};
             console.log('source', res.data)
             res.data?.forEach(lead => counts[lead.source] = (counts[lead.source] || 0) + 1);

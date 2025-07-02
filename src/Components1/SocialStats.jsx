@@ -9,7 +9,8 @@ export default function SocialStats() {
 
     const getSocialStat = async () => {
         try {
-            const res = await axios.get('http://localhost:3001/api/socialstat');
+            const url = process.env.REACT_APP_API_URL;
+            const res = await axios.get(`${url}/api/socialstat`);
             const arr = res.data;
 
             const dates = [...new Set(arr?.map(d => new Date(d.date).toLocaleDateString()))].sort();

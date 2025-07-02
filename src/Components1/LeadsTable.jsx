@@ -4,7 +4,8 @@ import axios from 'axios';
 export default function LeadsTable() {
   const [leads, setLeads] = useState([]);
   const getLeadsData = () => {
-    axios.get('http://localhost:3001/api/leads')
+    const url = process.env.REACT_APP_API_URL;
+    axios.get(`${url}/api/leads`)
       .then(res => {
         setLeads(res.data);
         console.log("first", res.data)

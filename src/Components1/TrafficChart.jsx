@@ -6,7 +6,8 @@ export default function TrafficChart() {
     const [data, setData] = useState({ categories: [], visitors: [] });
     console.log('date t', data)
     const getTrafficChartData = () => {
-        axios.get('http://localhost:3001/api/traffic').then(res => {
+        const url = process.env.REACT_APP_API_URL;
+        axios.get(`${url}/api/traffic`).then(res => {
             const arr = res.data;
             console.log('data', res.data)
             setData({

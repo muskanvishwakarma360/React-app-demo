@@ -8,7 +8,8 @@ export default function EmailStats() {
 
   const getEmailStat = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/api/emailcampaigns')
+      const url = process.env.REACT_APP_API_URL;
+      const res = await axios.get(`${url}/api/emailcampaigns`)
       const arr = res.data;
       console.log('res email', arr);
       setLabels(arr?.map(email => email.subject));

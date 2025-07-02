@@ -8,7 +8,8 @@ export default function ConversionFunnel() {
 
   const getConversionFunnel = async () => {
     try {
-      const conversionRes = await axios.get('http://localhost:3001/api/conversion');
+      const url = process.env.REACT_APP_API_URL;
+      const conversionRes = await axios.get(`{${url}/api/conversion`);
       const total = conversionRes.data.length;
 
       const leadsRes = await axios.get('http://localhost:3001/api/leads');

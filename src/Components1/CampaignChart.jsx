@@ -8,7 +8,8 @@ export default function CampaignChart() {
 
   const getCampaigns = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/campaigns');
+      const url = process.env.REACT_APP_API_URL;
+      const response = await axios.get(`${url}/api/campaigns`);
       const data = response.data;
       console.log('Campaigns data:', data);
       const campaignNames = data.map(item => item.campaignName);
@@ -39,8 +40,8 @@ export default function CampaignChart() {
     xaxis: {
       categories: cats
     },
-    title:{
-      text:"Campaigns Chart Cost and CTR"
+    title: {
+      text: "Campaigns Chart Cost and CTR"
     },
     plotOptions: {
       bar: {
@@ -51,13 +52,13 @@ export default function CampaignChart() {
   }
 
   return (
-   <div>
-     <Chart
-      series={series}
-      options={options}
-      type="bar"
-      height={350}
-    />
-   </div>
+    <div>
+      <Chart
+        series={series}
+        options={options}
+        type="bar"
+        height={350}
+      />
+    </div>
   );
 }

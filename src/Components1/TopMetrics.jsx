@@ -7,7 +7,8 @@ export default function TopMetrics() {
 
   const metricsData = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/api/overview');
+      const url = process.env.REACT_APP_API_URL;
+      const res = await axios.get(`${url}/api/overview`);
       setMetrics(res.data); 
     } catch (err) {
       console.log('err', err);
